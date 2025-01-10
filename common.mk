@@ -1,8 +1,8 @@
 CC=cc
-CFLAGS=-g -O2 -Wall -Wcheri
+CFLAGS=-g -O0
 
-CFLAGS_BASELINE=-march=morello+noa64c -mabi=aapcs
-CFLAGS_CHERI=-march=morello -mabi=purecap
+CFLAGS_BASELINE=-mabi=aapcs
+CFLAGS_CHERI=
 
 .for progbase in ${PROGBASES}
 .for variant in baseline cheri
