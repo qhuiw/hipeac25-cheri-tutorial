@@ -1,3 +1,3 @@
-PROGBASES=	use-after-free
+PROG=	use-after-free
 
 .include "../../common.mk"

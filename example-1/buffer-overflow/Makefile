@@ -1,3 +1,3 @@
-PROGBASES=	buffer-overflow-global
+PROG=	buffer-overflow-global
 
 .include "../../common.mk"

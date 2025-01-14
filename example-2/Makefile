@@ -1,3 +1,3 @@
-PROGBASES=	compiler-warnings
+PROG=	compiler-warnings
 
 .include "../common.mk"

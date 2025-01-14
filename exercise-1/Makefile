@@ -1,3 +1,3 @@
-PROGBASES=	cheri-allocator
+PROG=	cheri-allocator
 
 .include "../common.mk"
