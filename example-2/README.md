@@ -1,4 +1,4 @@
-Example: CHERI C/C++ porting issues
+# Example: CHERI C/C++ porting issues
 
 This example demonstrates 3 example issues you might encounter when porting
 C/C++ software to CHERI C/C++ due to its semantics differences:
@@ -37,7 +37,9 @@ Take the following steps to run this example:
    When compiled for the pure-capability ABI, the program crashes due to
    incorrect capability manipulations that are disallowed by CHERI C/C++.
 
-4. Debug the first crash:
+## Crash #1: loss of capability provenance
+
+1. Debug the crash:
 
    * Enter the debugger:
 
@@ -83,7 +85,7 @@ Take the following steps to run this example:
      quit
      ```
 
-5. Fix the first crash:
+2. Fix the crash:
 
    * Memory accesses in the pure-capability ABI must use valid capabilities.
      The `long` data type is not a data type that can hold a capability in CHERI
@@ -107,7 +109,9 @@ Take the following steps to run this example:
      ./compile-warnings-cheri
      ```
 
-6. Debug the second crash:
+## Crash #2: ambiguous capability provenance
+
+1. Debug the crash:
 
    * Enter the debugger:
 
@@ -152,7 +156,7 @@ Take the following steps to run this example:
      quit
      ```
 
-7. Fix the second crash:
+2. Fix the crash:
 
    * A capability is always created by deriving a new value from a previously
      created source capability. In case of a binary operator, the compiler does
@@ -180,7 +184,9 @@ Take the following steps to run this example:
      ./compile-warnings-cheri
      ```
 
-8. Debug the third crash:
+## Crash #3: underligned capability access
+
+1. Debug the crash:
 
    * Enter the debugger:
 
@@ -235,7 +241,7 @@ Take the following steps to run this example:
      quit
      ```
 
-8. Fix the third crash:
+2. Fix the crash:
 
    * A capability must be aligned to the pointer size (16 bytes on Arm Morello)
      in CHERI C/C++. Each capability-aligned address has a corresponding tag in
