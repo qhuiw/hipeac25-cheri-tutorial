@@ -48,7 +48,7 @@ struct alloc_storage {
 	uint8_t			 a_bytes[ALLOC_SIZE];	/* Allocated memory. */
 };
 
-#define	ALLOC_MAX	16			/* Availaable allocations. */
+#define	ALLOC_MAX	16			/* Available allocations. */
 struct alloc_storage alloc_array[ALLOC_MAX];	/* Underlying storage. */
 struct alloc_storage *alloc_nextfree;		/* Next available memory. */
 
