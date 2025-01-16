@@ -13,3 +13,10 @@ CHERI-enabled ARM Morello architecture.
 3. Run the CHERI version under `gdb` and examine the crash
    in more detail. Observe that the failing instruction attempts to write
    past the length of the `buffer` capability.
+
+## Source Files
+
+**buffer-overflow-global.c**
+```C
+{{#include buffer-overflow-global.c}}
+```

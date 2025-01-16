@@ -12,3 +12,10 @@ vulnerabilities.
 
 3. Run the CHERI version under `gdb` and examine the crash in more detail.
    Observe that the `cp` capability is invalid at the time of access.
+
+## Source Files
+
+**use-after-free.c**
+```C
+{{#include use-after-free.c}}
+```
