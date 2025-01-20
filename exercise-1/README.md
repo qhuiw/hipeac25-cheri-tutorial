@@ -57,10 +57,14 @@ deterministically close vulnerabilities (e.g., via spatial safety).
 2. Use GDB to demonstrate to yourself that the overflow has corrupted
    allocator metadata, leading to an eventual crash during a later call to
    `alloc_allocate()`.
+   *You can do this with the command `gdb ./cheri-allocator-cheri` and then use
+   the `run` command.*
 
 3. Modify the allocator to use the `cheri_bounds_set()` API to set suitable
    bounds on the pointer returned by `alloc_allocate()`.
    Recompile `cheri-allocator.c` with a CHERI-enabled target.
+   *Make sure to only build the CHERI binary for this using the
+   `make cheri-allocator-cheri` command.*
 
 4. Use GDB to demonstrate to yourself that the overflow operation now causes
    an immediate crash as a result of attempting to store out of bounds, rather
