@@ -1,6 +1,6 @@
 # Exercise: Adapt a C Program to CHERI C
 
-This excercise presents an example C program that includes capability-related
+This exercise presents an example C program that includes capability-related
 issues that might appear as bugs in software initially developed for non-CHERI
 architectures. The example C program is `cat(1)` from CheriBSD (and hence
 FreeBSD) modified to introduce the issues that we want to investigate.
@@ -28,7 +28,7 @@ FreeBSD) modified to introduce the issues that we want to investigate.
    * The `write(2)` system call expects a valid pointer in its second argument
 
    * Run the program with CHERI GDB and a breakpoint set for the `write` symbol.
-     Once CHERI GDB hits the breakpoint, you can usee the `backtrace` GDB
+     Once CHERI GDB hits the breakpoint, you can use the `backtrace` GDB
      command to see what function calls `write(2)`
 
    * What is the value of the `buf` argument and why?
@@ -47,7 +47,7 @@ FreeBSD) modified to introduce the issues that we want to investigate.
    ./cat-cheri -n /etc/resolv.conf
    ```
 
-6. Analyse the loss of provenance issue repoted by the compiler and try to fix
+6. Analyse the loss of provenance issue reported by the compiler and try to fix
    it
 
    * The `getc()` is a macro that expects a valid `FILE` pointer
