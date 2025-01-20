@@ -29,7 +29,10 @@ FreeBSD) modified to introduce the issues that we want to investigate.
 
    * Run the program with CHERI GDB and a breakpoint set for the `write` symbol.
      Once CHERI GDB hits the breakpoint, you can use the `backtrace` GDB
-     command to see what function calls `write(2)`
+     command to see what function calls `write(2)`.
+     You can do this by entering GDB: `gdb ./cat-cheri`
+     Then once inside set the breakpoint using: `break methods.c:70`
+     Finally run our vulnerable code: `run /etc/resolv.conf`
 
    * What is the value of the `buf` argument and why?
 
