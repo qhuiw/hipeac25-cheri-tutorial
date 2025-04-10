@@ -84,7 +84,11 @@ alloc_allocate(void)
 	alloc->a_next = NULL;
 
 	/* Return pointer to allocated memory. */
+  #ifdef __CHERI_PURE_CAPABILITY__
+	return (cheri_bounds_set(alloc->a_bytes, ALLOC_SIZE));
+  #else		
 	return (alloc->a_bytes);
+  #endif	
 };
 
 /*
@@ -121,10 +125,13 @@ main(void)
 
 	/*
 	 * Run off the end of the memory allocation, corrupting the next
-	 * allocation's metadata.  Free when done.
+	 * allocation's metadata.  Free when done. 
 	 */
 	printf("Preparing to overflow %p\n", ptr1);
-	memset(ptr1 + ALLOC_SIZE, 'A', sizeof(void *));
+	memset(ptr1 + ALLOC_SIZE, 'A', sizeof(void *)); 
+	// overflow because each pointer size 16 bytes, not 8 bytes
+	// printf("%lu\n", sizeof(void *)); // pointer size 128 bits
+
 	printf("Overflowed allocation %p\n", ptr1);
 
 	printf("Freeing allocation %p\n", ptr1);
